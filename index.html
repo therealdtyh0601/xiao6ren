@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🟦</title>
+  <style>
+    :root{
+      --bg:#06142e;
+      --card:#0b244a;
+      --card2:#0a1d40;
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.75);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(175,198,255,.22), transparent 60%),
+        radial-gradient(700px 400px at 80% 30%, rgba(120,180,255,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), #040c1b 70%);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .app{
+      width:min(560px, 100%);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 16px;
+      border:1px solid var(--stroke);
+      background: rgba(11,36,74,.65);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand .logo{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(175,198,255,.38), rgba(11,36,74,.2));
+      display:grid;place-items:center;
+      border:1px solid var(--stroke);
+    }
+    .chip{
+      display:flex;align-items:center;gap:8px;
+      padding:8px 10px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background: rgba(10,29,64,.55);
+      color:var(--muted);
+      font-weight:600;
+      user-select:none;
+    }
+    .card{
+      border:1px solid var(--stroke);
+      background: rgba(10,29,64,.65);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      background: rgba(11,36,74,.55);
+      border-bottom:1px solid var(--stroke);
+    }
+    .card .bd{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      flex:1;
+      min-width: 160px;
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(175,198,255,.18), rgba(11,36,74,.4));
+      color:var(--text);
+      font-size:20px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      transition: transform .08s ease, filter .08s ease;
+    }
+    .btn:active{transform: translateY(1px); filter: brightness(.98);}
+    .btn.secondary{
+      background: rgba(11,36,74,.35);
+      font-weight:700;
+      font-size:18px;
+    }
+    .panel{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background: rgba(6,20,46,.35);
+    }
+    .result{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background: rgba(11,36,74,.35);
+    }
+    .big{
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:.3px;
+    }
+    .muted{color:var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .pill{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background: rgba(11,36,74,.28);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-size:20px;
+      user-select:none;
+    }
+    .mini{
+      font-size:18px;
+      opacity:.95;
+    }
+    .footer{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      padding:10px 6px;
+      color:var(--muted);
+      opacity:.9;
+      user-select:none;
+    }
+    .hide{display:none}
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <div class="top">
+      <div class="brand">
+        <div class="logo">🟦</div>
+        <div>✨</div>
+      </div>
+      <div class="chip" id="nowChip">🕰️ ⏳</div>
+    </div>
+
+    <div class="card">
+      <div class="hd">
+        <div class="mini">🧭</div>
+        <div class="mini">👆</div>
+      </div>
+      <div class="bd">
+
+        <div class="row">
+          <button class="btn" id="castBtn">🧿⚡️</button>
+          <button class="btn secondary" id="helpBtn">📌</button>
+        </div>
+
+        <div class="panel" id="helpPanel" class="hide">
+          <div class="grid">
+            <div class="pill"><span>✅</span><span>🤔🧭</span></div>
+            <div class="pill"><span>✅</span><span>📩⏳</span></div>
+            <div class="pill"><span>✅</span><span>🗣️🤝</span></div>
+            <div class="pill"><span>✅</span><span>🚶🗓️</span></div>
+
+            <div class="pill"><span>❌</span><span>🏥🧑‍⚕️</span></div>
+            <div class="pill"><span>❌</span><span>💰🎲</span></div>
+            <div class="pill"><span>❌</span><span>⚖️📝</span></div>
+            <div class="pill"><span>❌</span><span>😵‍💫🔁</span></div>
+          </div>
+
+          <div class="pill"><span>🧠</span><span>1️⃣➡️1️⃣</span></div>
+          <div class="pill"><span>🖐️</span><span>⏱️🚫🔁</span></div>
+          <div class="pill"><span>🧘</span><span>🧭≠🔮</span></div>
+        </div>
+
+        <div class="result" id="resultBox">
+          <div>
+            <div class="big" id="shenEmoji">🟦</div>
+            <div class="muted" id="themeLine">🧭 🫧</div>
+          </div>
+          <div class="mini muted" id="stamp">⏳</div>
+        </div>
+
+        <div class="panel" id="detailPanel">
+          <div class="pill"><span>🧩</span><span id="line1">🫧</span></div>
+          <div class="pill"><span>🧩</span><span id="line2">🫧</span></div>
+          <div class="pill"><span>🧩</span><span id="line3">🫧</span></div>
+
+          <div class="grid">
+            <div class="pill"><span>💼</span><span id="tWork">🫧</span></div>
+            <div class="pill"><span>💞</span><span id="tLove">🫧</span></div>
+            <div class="pill"><span>🗣️</span><span id="tTalk">🫧</span></div>
+            <div class="pill"><span>🚶</span><span id="tMove">🫧</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">🧿 ⏱️ 🧭</div>
+    <div class="footer">📎 lumistudio2025</div>
+  </div>
+
+<script>
+  // 六神序：0..5（用小时 % 6）
+  // 0 空亡, 1 大安, 2 留连, 3 速喜, 4 赤口, 5 小吉
+  const data = {
+    "空亡": {
+      shen: "⚫️🫥",
+      theme: "⏸️ 🧘‍♂️ 🪶",
+      lines: ["⏳🚫📩", "🧠🧹🫧", "🔁➡️🗓️"],
+      tags: { work:"⏸️📌", love:"🫥🧊", talk:"🤫🧯", move:"⛔️➡️🕰️" }
+    },
+    "大安": {
+      shen: "🟢🧿",
+      theme: "🧱 ✅ 🛡️",
+      lines: ["🧘‍♂️🧭", "📋➡️✅", "🐢➡️🏁"],
+      tags: { work:"🧱📈", love:"🏠💞", talk:"🤝🫶", move:"🗓️✅" }
+    },
+    "留连": {
+      shen: "🟡🪢",
+      theme: "🕳️ 🔄 🐌",
+      lines: ["⏳🫧", "👀🧭", "🚫💥➡️😌"],
+      tags: { work:"🕰️📌", love:"🫣🫧", talk:"🤔💬", move:"🐌➡️🗓️" }
+    },
+    "速喜": {
+      shen: "✨⚡️",
+      theme: "🚀 📩 🎉",
+      lines: ["🟢➡️🏃‍♂️", "📩➡️✅", "🎯➡️🚀"],
+      tags: { work:"🚀📌", love:"💞✨", talk:"📣✅", move:"🟢🧳" }
+    },
+    "赤口": {
+      shen: "🔴🗡️",
+      theme: "⚠️ 🗣️💥 🧯",
+      lines: ["🤫➡️🛡️", "🧊➡️🧘", "⏭️➡️🤝"],
+      tags: { work:"⚠️🧾", love:"😤🧊", talk:"🚫🔥", move:"⛔️🧭" }
+    },
+    "小吉": {
+      shen: "🟩🍀",
+      theme: "📦 🟢 📈",
+      lines: ["👌🧩", "🪜➡️🪜", "🟢➡️✅"],
+      tags: { work:"📈🪜", love:"🙂💞", talk:"😊💬", move:"🚶✅" }
+    }
+  };
+
+  const order = ["空亡","大安","留连","速喜","赤口","小吉"];
+
+  const el = (id)=>document.getElementById(id);
+
+  function pad2(n){ return String(n).padStart(2,"0"); }
+
+  function updateNowChip(){
+    const d = new Date();
+    el("nowChip").textContent = `🕰️ ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+  }
+
+  function cast(){
+    const d = new Date();
+    const h = d.getHours();       // 0-23
+    const idx = h % 6;            // 0-5
+    const key = order[idx];
+    const pack = data[key];
+
+    el("shenEmoji").textContent = pack.shen;
+    el("themeLine").textContent = pack.theme;
+    el("line1").textContent = pack.lines[0];
+    el("line2").textContent = pack.lines[1];
+    el("line3").textContent = pack.lines[2];
+
+    el("tWork").textContent = pack.tags.work;
+    el("tLove").textContent = pack.tags.love;
+    el("tTalk").textContent = pack.tags.talk;
+    el("tMove").textContent = pack.tags.move;
+
+    el("stamp").textContent = `⏱️ ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+  }
+
+  // help panel toggle (emoji-only)
+  let helpOpen = false;
+  el("helpBtn").addEventListener("click", ()=>{
+    helpOpen = !helpOpen;
+    el("helpPanel").style.display = helpOpen ? "flex" : "none";
+  });
+
+  el("castBtn").addEventListener("click", cast);
+
+  // init
+  updateNowChip();
+  cast();
+  setInterval(updateNowChip, 15000);
+</script>
+</body>
+</html>
