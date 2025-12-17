@@ -2,335 +2,111 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🟦</title>
-  <style>
-    :root{
-      --bg:#06142e;
-      --card:#0b244a;
-      --card2:#0a1d40;
-      --stroke:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.75);
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(900px 500px at 20% 10%, rgba(175,198,255,.22), transparent 60%),
-        radial-gradient(700px 400px at 80% 30%, rgba(120,180,255,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg), #040c1b 70%);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-    .app{
-      width:min(560px, 100%);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:14px 16px;
-      border:1px solid var(--stroke);
-      background: rgba(11,36,74,.65);
-      border-radius:18px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing:.2px;
-    }
-    .brand .logo{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(175,198,255,.38), rgba(11,36,74,.2));
-      display:grid;place-items:center;
-      border:1px solid var(--stroke);
-    }
-    .chip{
-      display:flex;align-items:center;gap:8px;
-      padding:8px 10px;
-      border-radius:14px;
-      border:1px solid var(--stroke);
-      background: rgba(10,29,64,.55);
-      color:var(--muted);
-      font-weight:600;
-      user-select:none;
-    }
-    .card{
-      border:1px solid var(--stroke);
-      background: rgba(10,29,64,.65);
-      border-radius:18px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .card .hd{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 16px;
-      background: rgba(11,36,74,.55);
-      border-bottom:1px solid var(--stroke);
-    }
-    .card .bd{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      flex:1;
-      min-width: 160px;
-      padding:14px 14px;
-      border-radius:18px;
-      border:1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(175,198,255,.18), rgba(11,36,74,.4));
-      color:var(--text);
-      font-size:20px;
-      font-weight:800;
-      cursor:pointer;
-      box-shadow: 0 10px 22px rgba(0,0,0,.25);
-      transition: transform .08s ease, filter .08s ease;
-    }
-    .btn:active{transform: translateY(1px); filter: brightness(.98);}
-    .btn.secondary{
-      background: rgba(11,36,74,.35);
-      font-weight:700;
-      font-size:18px;
-    }
-    .panel{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      padding:14px;
-      border-radius:16px;
-      border:1px solid var(--stroke);
-      background: rgba(6,20,46,.35);
-    }
-    .result{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:14px;
-      border-radius:16px;
-      border:1px solid var(--stroke);
-      background: rgba(11,36,74,.35);
-    }
-    .big{
-      font-size:30px;
-      font-weight:900;
-      letter-spacing:.3px;
-    }
-    .muted{color:var(--muted)}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-    .pill{
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid var(--stroke);
-      background: rgba(11,36,74,.28);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      font-size:20px;
-      user-select:none;
-    }
-    .mini{
-      font-size:18px;
-      opacity:.95;
-    }
-    .footer{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      padding:10px 6px;
-      color:var(--muted);
-      opacity:.9;
-      user-select:none;
-    }
-    .hide{display:none}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小六壬 · Lumi Free</title>
+  <meta name="description" content="小六壬 · Lumi Free — 一秒起课，emoji 版速断。" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
-
 <body>
-  <div class="app">
-
-    <div class="top">
+  <main class="wrap">
+    <header class="top">
       <div class="brand">
-        <div class="logo">🟦</div>
-        <div>✨</div>
+        <div class="title">🟦 小六壬 · Lumi Free</div>
+        <div class="sub">⏱️ 一秒起课 · 🧭 当下参考 · 🆓 Free</div>
       </div>
-      <div class="chip" id="nowChip">🕰️ ⏳</div>
-    </div>
+      <button id="btnTheme" class="btn ghost" type="button" aria-label="切换主题">🌙 / ☀️</button>
+    </header>
 
-    <div class="card">
-      <div class="hd">
-        <div class="mini">🧭</div>
-        <div class="mini">👆</div>
-      </div>
-      <div class="bd">
-
+    <section class="card hero">
+      <div class="heroText">
+        <div class="kicker">🧠 你不是在问“命运”，你是在看“此刻状态”。</div>
+        <div class="prompt">「此刻之事，起一课」</div>
         <div class="row">
-          <button class="btn" id="castBtn">🧿⚡️</button>
-          <button class="btn secondary" id="helpBtn">📌</button>
+          <button id="btnCast" class="btn primary" type="button">✨ 起课</button>
+          <button id="btnNow" class="btn" type="button">🕰️ 用现在时间</button>
         </div>
-
-        <div class="panel" id="helpPanel" class="hide">
-          <div class="grid">
-            <div class="pill"><span>✅</span><span>🤔🧭</span></div>
-            <div class="pill"><span>✅</span><span>📩⏳</span></div>
-            <div class="pill"><span>✅</span><span>🗣️🤝</span></div>
-            <div class="pill"><span>✅</span><span>🚶🗓️</span></div>
-
-            <div class="pill"><span>❌</span><span>🏥🧑‍⚕️</span></div>
-            <div class="pill"><span>❌</span><span>💰🎲</span></div>
-            <div class="pill"><span>❌</span><span>⚖️📝</span></div>
-            <div class="pill"><span>❌</span><span>😵‍💫🔁</span></div>
-          </div>
-
-          <div class="pill"><span>🧠</span><span>1️⃣➡️1️⃣</span></div>
-          <div class="pill"><span>🖐️</span><span>⏱️🚫🔁</span></div>
-          <div class="pill"><span>🧘</span><span>🧭≠🔮</span></div>
-        </div>
-
-        <div class="result" id="resultBox">
-          <div>
-            <div class="big" id="shenEmoji">🟦</div>
-            <div class="muted" id="themeLine">🧭 🫧</div>
-          </div>
-          <div class="mini muted" id="stamp">⏳</div>
-        </div>
-
-        <div class="panel" id="detailPanel">
-          <div class="pill"><span>🧩</span><span id="line1">🫧</span></div>
-          <div class="pill"><span>🧩</span><span id="line2">🫧</span></div>
-          <div class="pill"><span>🧩</span><span id="line3">🫧</span></div>
-
-          <div class="grid">
-            <div class="pill"><span>💼</span><span id="tWork">🫧</span></div>
-            <div class="pill"><span>💞</span><span id="tLove">🫧</span></div>
-            <div class="pill"><span>🗣️</span><span id="tTalk">🫧</span></div>
-            <div class="pill"><span>🚶</span><span id="tMove">🫧</span></div>
-          </div>
-        </div>
-
+        <div class="hint">⚠️ 同一件事短时间内不要反复起课（容易越问越乱）。</div>
       </div>
-    </div>
 
-    <div class="footer">🧿 ⏱️ 🧭</div>
-    <div class="footer">📎 lumistudio2025</div>
-  </div>
+      <div class="heroPanel">
+        <div class="mini">
+          <div class="miniTitle">📌 起课时间</div>
+          <div id="timeLabel" class="miniValue">—</div>
+        </div>
+        <div class="mini">
+          <div class="miniTitle">🔢 小时数</div>
+          <div id="hourLabel" class="miniValue">—</div>
+        </div>
+        <div class="mini big">
+          <div class="miniTitle">🧾 结果</div>
+          <div id="resultLabel" class="result">—</div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  // 六神序：0..5（用小时 % 6）
-  // 0 空亡, 1 大安, 2 留连, 3 速喜, 4 赤口, 5 小吉
-  const data = {
-    "空亡": {
-      shen: "⚫️🫥",
-      theme: "⏸️ 🧘‍♂️ 🪶",
-      lines: ["⏳🚫📩", "🧠🧹🫧", "🔁➡️🗓️"],
-      tags: { work:"⏸️📌", love:"🫥🧊", talk:"🤫🧯", move:"⛔️➡️🕰️" }
-    },
-    "大安": {
-      shen: "🟢🧿",
-      theme: "🧱 ✅ 🛡️",
-      lines: ["🧘‍♂️🧭", "📋➡️✅", "🐢➡️🏁"],
-      tags: { work:"🧱📈", love:"🏠💞", talk:"🤝🫶", move:"🗓️✅" }
-    },
-    "留连": {
-      shen: "🟡🪢",
-      theme: "🕳️ 🔄 🐌",
-      lines: ["⏳🫧", "👀🧭", "🚫💥➡️😌"],
-      tags: { work:"🕰️📌", love:"🫣🫧", talk:"🤔💬", move:"🐌➡️🗓️" }
-    },
-    "速喜": {
-      shen: "✨⚡️",
-      theme: "🚀 📩 🎉",
-      lines: ["🟢➡️🏃‍♂️", "📩➡️✅", "🎯➡️🚀"],
-      tags: { work:"🚀📌", love:"💞✨", talk:"📣✅", move:"🟢🧳" }
-    },
-    "赤口": {
-      shen: "🔴🗡️",
-      theme: "⚠️ 🗣️💥 🧯",
-      lines: ["🤫➡️🛡️", "🧊➡️🧘", "⏭️➡️🤝"],
-      tags: { work:"⚠️🧾", love:"😤🧊", talk:"🚫🔥", move:"⛔️🧭" }
-    },
-    "小吉": {
-      shen: "🟩🍀",
-      theme: "📦 🟢 📈",
-      lines: ["👌🧩", "🪜➡️🪜", "🟢➡️✅"],
-      tags: { work:"📈🪜", love:"🙂💞", talk:"😊💬", move:"🚶✅" }
-    }
-  };
+    <section class="grid2">
+      <section class="card">
+        <div class="cardTitle">🧭 使用指引</div>
+        <ul class="list">
+          <li>✅ 适合：等消息、犹豫不决、短期决定、沟通气氛、人际互动。</li>
+          <li>✅ 你在问的是：<b>“现在该动还是该等？”</b></li>
+          <li>❌ 不建议：医疗/生死、重财务投资、法律事项、情绪极不稳定时反复起课。</li>
+          <li>✅ 正确用法：一次只问一件事 → 再按起课 → 看“当下倾向”。</li>
+        </ul>
 
-  const order = ["空亡","大安","留连","速喜","赤口","小吉"];
+        <details class="details">
+          <summary>🧷 更详细：什么时候用 / 不用</summary>
+          <div class="detailsBody">
+            <p><b>适合</b>：心里卡住但事情未定、等回复/进展、想知道此刻气氛、今天这几天的行动节奏。</p>
+            <p><b>不建议</b>：拿它当“终局判决”、恐吓式凶断、用来替代专业意见、或连续起课逼答案。</p>
+            <p class="muted">📎 提醒：小六壬是“当下气机参考”，不是人生判命书。</p>
+          </div>
+        </details>
+      </section>
 
-  const el = (id)=>document.getElementById(id);
+      <section class="card">
+        <div class="cardTitle">🧩 主题快速看</div>
+        <div class="chips" id="topicChips">
+          <!-- JS render -->
+        </div>
+        <div class="divider"></div>
+        <div id="topicPanel" class="topicPanel">
+          <div class="muted">点一个主题，我会把当前结果的解读切换成该主题的版本。</div>
+        </div>
+      </section>
+    </section>
 
-  function pad2(n){ return String(n).padStart(2,"0"); }
+    <section class="card">
+      <div class="cardTitle">🧾 六神完整解释（Free 版）</div>
+      <div id="fullExplain" class="explain">
+        <div class="muted">先起课，我才显示对应的完整解释。</div>
+      </div>
+      <div class="divider"></div>
 
-  function updateNowChip(){
-    const d = new Date();
-    el("nowChip").textContent = `🕰️ ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-  }
+      <details class="details">
+        <summary>📚 六神速查表</summary>
+        <div class="detailsBody">
+          <div class="table">
+            <div class="tr head">
+              <div class="td">六神</div><div class="td">核心</div><div class="td">一句话</div>
+            </div>
+            <div class="tr"><div class="td">🟢 大安</div><div class="td">稳定</div><div class="td">守得住就会成</div></div>
+            <div class="tr"><div class="td">🟡 留连</div><div class="td">拖延</div><div class="td">未到时机，先观察</div></div>
+            <div class="tr"><div class="td">✨ 速喜</div><div class="td">推进</div><div class="td">好消息在路上</div></div>
+            <div class="tr"><div class="td">🔴 赤口</div><div class="td">冲突</div><div class="td">少说少碰，先缓</div></div>
+            <div class="tr"><div class="td">🟢 小吉</div><div class="td">小成</div><div class="td">不大，但稳</div></div>
+            <div class="tr"><div class="td">⚫ 空亡</div><div class="td">暂空</div><div class="td">此刻无果，换时机</div></div>
+          </div>
+        </div>
+      </details>
+    </section>
 
-  function cast(){
-    const d = new Date();
-    const h = d.getHours();       // 0-23
-    const idx = h % 6;            // 0-5
-    const key = order[idx];
-    const pack = data[key];
+    <footer class="foot">
+      <div class="watermark">ig: <b>lumistudio2025</b></div>
+      <div class="disclaimer">📌 本 App 提供传统时间象意参考，用于觉察当下状态，不作为决定或预测依据。</div>
+    </footer>
+  </main>
 
-    el("shenEmoji").textContent = pack.shen;
-    el("themeLine").textContent = pack.theme;
-    el("line1").textContent = pack.lines[0];
-    el("line2").textContent = pack.lines[1];
-    el("line3").textContent = pack.lines[2];
-
-    el("tWork").textContent = pack.tags.work;
-    el("tLove").textContent = pack.tags.love;
-    el("tTalk").textContent = pack.tags.talk;
-    el("tMove").textContent = pack.tags.move;
-
-    el("stamp").textContent = `⏱️ ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-  }
-
-  // help panel toggle (emoji-only)
-  let helpOpen = false;
-  el("helpBtn").addEventListener("click", ()=>{
-    helpOpen = !helpOpen;
-    el("helpPanel").style.display = helpOpen ? "flex" : "none";
-  });
-
-  el("castBtn").addEventListener("click", cast);
-
-  // init
-  updateNowChip();
-  cast();
-  setInterval(updateNowChip, 15000);
-</script>
+  <script src="./app.js"></script>
 </body>
 </html>
